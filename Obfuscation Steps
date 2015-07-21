@@ -1,0 +1,28 @@
+/************************************************************
+ Copyright (C), 1989-2015, Nanhu Tech. co.,Ltd.
+ FileName:Obfuscation Steps
+ Author:Hu Jiaju      Version :1.0     Date:20/07/2015
+ Description:This file make the xcode code obfuscation more easier for developers!
+ History:
+ <author>  <time>   <version >   <desc>
+ Jiaju    15/07/20     1.0     build this moudle
+ ***********************************************************/
+网上搜索到的一些资料或多或少的注释性语句，不够各大论坛也讲述的不一，步骤不是很清晰，
+导致一些开发人员对代码混淆敬而远之！
+
+本文档针对网上的主流方法进行整理归档，目的是使有代码混淆需求的开发人员通过简单的配置
+便能掌握代码混淆的方法：
+参考文档：
+http://www.2cto.com/kf/201406/307353.html
+Notes：
+1，生成shell脚本，windows环境下生成shell脚本比较简单不再多说，Mac下生成shell脚本可以
+通过命令行，最简单的方法是把.txt文档直接更改后缀名为.sh即可
+2，#维护数据库方便日后作排重，如果没有对数据库的操作则可以忽略这一步，直接删除即可
+3，while read -ra line读不到最后一行，直接可更改为：while read -ra line||[[ -n ${line} ]]
+即可
+4，配置Build Phase，一直报'codeObfuscation.h' file not found错误，这个是脚本的位置的问题，
+将Run Script项拖动到最上边即可
+5，方法列表func.list怎么创建，无所谓，随便生成一个文件更改后缀名即可，后缀名可以随意起，
+如.json .kill etc.
+
+大功告成！可以在build项查看到已经有随即方法名称生成！或在codeObfuscation.h文件查看到
